@@ -1,0 +1,30 @@
+MouseWheel Xtrav 1.4 feb07© Antoine Schmitt 2005-2008
+---------- Synopsis ----------The ÇÊMouseWheelÊÈ Xtra allows lingo to get access to mouse wheel events.
+
+This Xtra was inspired by the Wheel Mouse Xtra of Gary Smith, which works only on Windows (http://www.mods.com.au/)
+The Wheel Mouse on Windows and the MouseWheel on Macintosh have the same APIs and behavior.
+---------- Description  ----------
+
+scripting Xtra
+Director 8.5/MX/MX 2004/D11
+MacOSX (>= 10.3.8)
+Shockwave safe (but not autodownloadable - because broken in Safari)
+Beta version
+
+Known bugs :
+- works badly in Safari (but ok in Explorer and Firefox)
+--------- Installation ----------Copy the xtra file into the Director Xtra folder.For Director <= MX 2004, use the 'MouseWheelXtra' file
+For Director >= D11, use the 'MouseWheelXtra.xtra' file
+---------- API ----------
+
+This API is the same as the Wheel Mouse of Gary Smith (http://www.mods.com.au/)startWheelMouse()
+Initializes the Xtra. After this call, the Xtra will call the "WheelMouseEvent" (see below) handler for each movement of the mouse. Returns 1 if success or an error code if an error occurred.
+
+closeWheelMouse()
+Closes the Xtra. The "WheelMouseEvent" handler is not called any more. Returns 1 if success or an error code if an error occurred.
+
+After the startWheelMouse call has been made, the Xtra calls the animation lingo handler "WheelMouseEvent" each time the wheel is moved. The handler is called with one argument : an integer representing the amount of mouvement of the wheel. A value of 120 will be equivalent to one wheel 'click'.
+
+---------- Error codes ----------
+
+-1		// "MouseWheel Xtra already started"-2		// "MouseWheel Xtra not started"-3		// "MouseWheel Xtra expired"-4		// "MouseWheel Xtra initialisation error"
